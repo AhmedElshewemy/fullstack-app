@@ -1,0 +1,111 @@
+.notes-page {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #fafbfc;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.notes-page h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  color: #22223b;
+}
+
+.note-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.note-form input,
+.note-form textarea {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #bfc0c0;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+}
+
+.note-form button {
+  padding: 10px 20px;
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.note-form button:hover {
+  background: #2563eb;
+}
+
+.notes-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 8px;
+}
+
+.note-card {
+  transition: transform 0.1s ease, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+}
+
+.note-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+}
+
+.note-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #22223b;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.note-card p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #3a3a3a;
+  line-height: 1.7;
+  word-break: break-word;
+  white-space: pre-line;
+}
+
+.theme-button {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 1.2rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  padding: 3px 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.theme-button:hover {
+  background: #e0e7ff;
+}

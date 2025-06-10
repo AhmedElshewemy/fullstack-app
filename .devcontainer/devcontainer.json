@@ -1,0 +1,12 @@
+{
+  "name": "Fullstack Development Environment",
+  "image": "node:slim", // Using the slim variant for better compatibility
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "npm install --prefix backend && npm install --prefix frontend",
+  "forwardPorts": [8080, 3000],
+  "remoteUser": "node",
+  "workspaceFolder": "/workspace"
+}
