@@ -1,12 +1,34 @@
 import React, { useState } from 'react';
+import { ErrorMessage } from './ErrorMessage';
 
 const NoteForm = ({ onSubmit }) => {
   const [note, setNote] = useState({ title: '', content: '' });
+  const [error, setError] = useState('');
+
+  const validateNote = () => {
+    if (!note.title.trim()) {
+      setError('Title is required');
+      return false;
+    }
+    if (!note.content.trim()) {
+      setError('Content is required');
+      return false;
+    }
+    if (note.title.length > 100) {
+      setError('Title must be less than 100 characters');
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(note);
-    setNote({ title: '', content: '' });
+    setError('');
+    
+    if (validateNote()) {
+      onSubmit(note);
+      setNote({ title: '', content: '' });
+    }
   };
 
   return (

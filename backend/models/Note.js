@@ -14,6 +14,15 @@ const noteSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  status: {
+    type: String,
+    enum: ['active', 'completed', 'archived'],
+    default: 'active'
+  },
+  order: {
+    type: Number,
+    default: 0,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

@@ -95,4 +95,33 @@ router.delete('/:id', protect, async (req, res) => {
   }
 });
 
+// Reorder notes
+router.put('/reorder', protect, async (req, res) => {
+  try {
+    const { noteOrders } = req.body;
+    
+    // Validate input
+    if (!Array.isArray(noteOrders)) {
+      return res.status(400).json({ message: 'Invalid note orders format' });
+    }
+
+    // Update each note's order in parallel
+    await Promise.all(
+      noteOrders.map(({ id, order }) =>
+        Note.findOneAndUpdate(
+          { _id: id, user: req.user._id },
+          { order },
+          { new: true }
+        )
+      )
+    );
+
+    // Get updated notes
+    const notes = await Note.find({ user: req.user._id }).sort('order');
+    res.json(notes);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 module.exports = router;
